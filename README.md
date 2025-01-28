@@ -16,10 +16,10 @@ gem 'overcommit', '~> 0.30'
 gem 'code_quality_check', path: 'path/to/code_quality_check'
 ```
 
-Install the gem and add to the application's Gemfile by executing:
+After Addding Above gem run below command:
 
 ```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bundle install
 ```
 
 ## Usage
