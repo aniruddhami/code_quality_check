@@ -1,7 +1,5 @@
 # CodeQualityCheck
 
-# CodeQualityCheck Gem
-
 The `CodeQualityCheck` gem integrates code quality checks into your Rails project using pre-commit hooks. It utilizes the following tools:
 
 - **RuboCop**: A Ruby static code analyzer based on the community Ruby style guide.
