@@ -15,10 +15,10 @@ module CodeQualityCheck
         template 'overcommit.rb', 'config/initializers/overcommit.rb'
 
         # Copy the Overcommit configuration file to the root directory
-        template '.overcommit.yml', '.overcommit.yml'
+        template 'overcommit.yml', '.overcommit.yml'
 
         # Copy the RuboCop configuration file to the root directory
-        template '.rubocop.yml', '.rubocop.yml'
+        template 'rubocop.yml', '.rubocop.yml'
       end
     end
   end
