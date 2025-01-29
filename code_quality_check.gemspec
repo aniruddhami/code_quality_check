@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/aniruddhami/code_quality_check'
-  spec.metadata['changelog_uri'] = 'https://github.com/aniruddhami/code_quality_check/CHANGELOG.md'
+  spec.metadata['changelog_uri'] = 'https://github.com/aniruddhami/code_quality_check/blob/main/CHANGELOG.md'
   spec.metadata['github_repo'] = 'https://github.com/aniruddhami/code_quality_check'
 
   spec.bindir = 'exe'
