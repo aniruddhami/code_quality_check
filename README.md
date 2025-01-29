@@ -13,7 +13,7 @@ Add the gem to your Gemfile:
 
 ```ruby
 gem 'overcommit', '~> 0.30'
-gem 'code_quality_check', path: 'path/to/code_quality_check'
+gem 'code_quality_check', '~> 0.1.1'
 ```
 
 After Addding Above gem run below command:
