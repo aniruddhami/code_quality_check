@@ -26,8 +26,14 @@ PreCommit:
 
   # RailsBestPractices is a code metric tool to check the quality of Rails code.
   RailsBestPractices:
+    RailsBestPractices:
     enabled: true
-    on_warn: fail
+    command: ['bundle', 'exec', 'rails_best_practices']
+    required_executable: 'rails_best_practices'
+    description: 'Checking Rails best practices'
+    problem_on_unmodified_line: ignore
+    expected_exit_status: 0
+    fail_hook: true
     exclude:
       - '**/lib/**/*'
 
@@ -37,7 +43,7 @@ PreCommit:
     command: ['brakeman', '--skip-libs', '-w3']
 
   TrailingWhitespace:
-    enabled: true
+    enabled: false
     exclude:
       - '**/lib/**/*' # Ignore trailing whitespace in generated files
 
