@@ -31,6 +31,15 @@ rails generate code_quality_check:install
 This will:
 Copy configuration files for Overcommit, RuboCop, and Rails Best Practices into your project.
 
+## Example
+
+Success Example:
+
+![image](https://github.com/user-attachments/assets/196e2c08-7eb6-4aa5-9559-b973e484ad68)
+
+Failure Example:
+![image](https://github.com/user-attachments/assets/8fb5b96d-b3fc-4645-8f4f-275a58d6bc97)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
