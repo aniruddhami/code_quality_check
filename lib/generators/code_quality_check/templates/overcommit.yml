@@ -26,9 +26,7 @@ PreCommit:
 
   # RailsBestPractices is a code metric tool to check the quality of Rails code.
   RailsBestPractices:
-    RailsBestPractices:
     enabled: true
-    command: ['bundle', 'exec', 'rails_best_practices']
     required_executable: 'rails_best_practices'
     description: 'Checking Rails best practices'
     problem_on_unmodified_line: ignore
