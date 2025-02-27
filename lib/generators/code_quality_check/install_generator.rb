@@ -9,6 +9,11 @@ module CodeQualityCheck
       source_root File.expand_path('templates', __dir__)
       desc 'This generator creates an initializer file for Overcommit'
 
+      def install_overcommit
+        # Install Overcommit
+        run 'bundle exec overcommit --install'
+      end
+
       # Define a method that copies the initializer file to the config/initializers directory
       def copy_required_files
         # Copy the initializer file to the config/initializers directory
@@ -19,6 +24,10 @@ module CodeQualityCheck
 
         # Copy the RuboCop configuration file to the root directory
         template 'rubocop.yml', '.rubocop.yml'
+        
+        # Copy the pre-commit hook to the .git/hooks directory
+        template 'pre-commit', '.git/hooks/pre-commit', force: true
+        template 'post-checkout', '.git/hooks/post-checkout', force: true
       end
     end
   end
