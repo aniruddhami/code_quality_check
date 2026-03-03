@@ -2,5 +2,5 @@
 
 # Version Module.
 module CodeQualityCheck
-  VERSION = '0.1.6'
+  VERSION = '0.1.8'
 end

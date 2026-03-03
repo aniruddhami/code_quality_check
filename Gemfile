@@ -20,3 +20,9 @@ gem 'rubocop-performance', '~> 1.23', '>= 1.23.1'
 
 # A RuboCop extension focused on enforcing Rails best practices and coding conventions.
 gem 'rubocop-rails', '~> 2.29', '>= 2.29.1'
+
+gem "tidewave", group: :development
+
+group :development, :test do
+  gem "sqlite3", "~> 2.1"
+end

@@ -1,4 +1,20 @@
-# config/initializers/overcommit.rb
+# config/initializers/code_quality_check.rb
+
+# Ensure code_quality_check gem is installed before setting up hooks
+begin
+  Gem::Specification.find_by_name('code_quality_check')
+rescue Gem::MissingSpecError
+  raise <<~MSG
+    The code_quality_check gem is not installed.
+
+    Add to your Gemfile:
+      gem 'code_quality_check'
+
+    Then run:
+      bundle install
+      rails generate code_quality_check:install
+  MSG
+end
 
 if Rails.env.development? || Rails.env.test?
   begin

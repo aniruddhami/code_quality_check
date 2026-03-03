@@ -2,18 +2,21 @@
 # extend the default configuration defined in:
 # https://github.com/sds/overcommit/blob/master/config/default.yml
 #
-# At the topmost level of this YAML file is a key representing type of hook
-# being run (e.g. pre-commit, commit-msg, etc.). Within each type you can
-# customize each hook, such as whether to only run it on certain files (via
-# `include`), whether to only display output if it fails (via `quiet`), etc.
+# Required gems (add to your Gemfile; code_quality_check provides most):
+#   - overcommit
+#   - rubocop, rubocop-performance, rubocop-rails
+#   - brakeman
+#   - rails_best_practices
+#   - bundler-audit (for BundleAudit security check)
+#
+# Optional code quality gems (enable hooks below to use):
+#   - reek (code smells)
+#   - flay (code duplication)
+#   - fasterer (performance)
 #
 # For a complete list of hooks, see:
 # https://github.com/sds/overcommit/tree/master/lib/overcommit/hook
-#
-# For a complete list of options that you can use to customize hooks, see:
-# https://github.com/sds/overcommit#configuration
-#
-# Uncomment the following lines to make the configuration take effect.
+#-------------------------------------------------------------------------------
 
 PreCommit:
   RuboCop:
@@ -38,10 +41,43 @@ PreCommit:
   # Brakeman is a static analysis security vulnerability scanner for Ruby on Rails applications.
   Brakeman:
     enabled: true
-    command: ['brakeman', '--skip-libs', '-w3']
+    required_executable: 'brakeman'
+    command: ['bundle', 'exec', 'brakeman', '--skip-libs', '-w3']
+    description: 'Scanning for security vulnerabilities with Brakeman'
+
+  # BundleAudit checks Gemfile.lock for known vulnerable gem versions (CVE database).
+  BundleAudit:
+    enabled: true
+    required_executable: 'bundle-audit'
+    description: 'Checking for vulnerable gem versions'
+    include:
+      - 'Gemfile.lock'
+
+  # Reek analyzes Ruby code for code smells (add gem 'reek' to enable).
+  Reek:
+    enabled: false
+    required_executable: 'reek'
+    description: 'Detecting code smells with Reek'
+    flags: ['--single-line', '--no-color', '--force-exclusion']
+    include: '**/*.rb'
+
+  # Flay finds structural code duplication (add gem 'flay' to enable).
+  Flay:
+    enabled: false
+    required_executable: 'flay'
+    description: 'Finding code duplication with Flay'
+    mass_threshold: 16
+    include: '**/*.rb'
+
+  # Fasterer suggests Ruby performance improvements (add gem 'fasterer' to enable).
+  Fasterer:
+    enabled: false
+    required_executable: 'fasterer'
+    description: 'Analyzing for potential speed improvements'
+    include: '**/*.rb'
 
   TrailingWhitespace:
-    enabled: false
+    enabled: true
     exclude:
       - '**/lib/**/*' # Ignore trailing whitespace in generated files
 
